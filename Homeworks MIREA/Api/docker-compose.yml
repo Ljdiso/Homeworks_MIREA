@@ -1,0 +1,16 @@
+services:
+    api:
+        build:
+            context: .
+        environment:
+            - TIMEOUT=5
+        depends_on:
+            - db_postgres
+
+    db_postgres:
+        image: postgres
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+    postgres_data:
